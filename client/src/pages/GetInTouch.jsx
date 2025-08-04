@@ -18,7 +18,7 @@ const GetInTouch = () => {
         setStatus(false)
         setSending(true)
         try {
-            const res = await axios.post('http://localhost:3000/getintouch', { name, email, message });
+            const res = await axios.post('https://portfolio-server-0uz7.onrender.com/getintouch', { name, email, message });
             setZodError(res.data.error)
             setStatus(true)
             setName('')
