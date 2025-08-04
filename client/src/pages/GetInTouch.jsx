@@ -9,23 +9,27 @@ const GetInTouch = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
-    const [error, setError] = useState('')
+    const [zodError, setZodError] = useState('')
+    const [status, setStatus] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError('')
+        setZodError('')
+        setStatus(false)
         setSending(true)
         try {
             const res = await axios.post('http://localhost:3000/getintouch', { name, email, message });
-            setError(res.data.error)
+            setZodError(res.data.error)
+            setStatus(true)
             setName('')
             setEmail('')
             setMessage('')
+
         } catch (err) {
             console.error("AxiosError:", err.message);
         }
         setSending(false)
-
+        setTimeout(() => setStatus(false), 10000)
     };
     return (
         <div className='w-full min-h-screen font-quicksand flex justify-center items-center px-3 pt-20' style={{ backgroundImage: `url(${contactBackground})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -64,8 +68,8 @@ const GetInTouch = () => {
                             placeholder='Message'
                             className='border-2 border-gray-400 rounded-md p-2 outline-blue-300 resize-none placeholder:font-semibold placeholder:text-white text-white bg-transparent font-semibold placeholder:opacity-60' ></textarea>
                         <div
-                            className={`${error ? 'block' : 'hidden'}  border-2 border-gray-400 rounded-md p-2  outline-blue-300 resize-none text-white bg-transparent font-semibold`}>
-                            {error ? <p className='text-white pl-4'>{error}</p> : <p></p>}
+                            className={`${zodError || status ? 'block' : 'hidden'}  border-2 border-gray-400 rounded-md p-2  outline-blue-300 resize-none text-white bg-transparent font-semibold`}>
+                            {zodError ? <p className='text-white pl-4'>❌ {zodError}</p> : <p className='text-white pl-4'>✅ Message sent successfully</p>}
                         </div>
                         <button type='submit' className='bg-blue-500 hover:bg-blue-400 px-4 py-2 font-semibold text-xl flex justify-center items-center text-white rounded-md gap-5 transition-all duration-300 cursor-pointer'>{sending ? "Sending Message" : "Send Message"} <IoMdSend className='text-lg' /></button>
                     </form>
