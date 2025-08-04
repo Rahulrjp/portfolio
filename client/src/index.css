@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+.font-bitcount{
+    font-family: "Bitcount Single";
+    font-weight: 300;
+}
+.font-quicksand{
+    font-family: "Quicksand";
+    font-weight: 300;
+}
