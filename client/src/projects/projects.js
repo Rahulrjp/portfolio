@@ -8,8 +8,8 @@ export const projects = [
         description: "A responsive and modern portfolio website built to showcase projects, skills, and experience, serving as a professional online presence.",
         tags: ["Responsive design", "Modern UI", "Showcase Skills"],
         image: portfolio,
-        github : "#",
-        link : "#"
+        github : "https://github.com/Rahulrjp/portfolio",
+        link : "https://portfolio-ihaj.onrender.com"
     },
     {
         name: "E-Commerce website",
