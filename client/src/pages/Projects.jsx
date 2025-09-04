@@ -1,5 +1,5 @@
 import React from 'react'
-import projectImage1 from "../assets/project-page-image.png"
+import projectImage1 from "../assets/project-page-image.jpg"
 import { BiHash, BiLink } from 'react-icons/bi'
 import {projects} from "../projects/projects.js"
 import {motion} from "framer-motion"

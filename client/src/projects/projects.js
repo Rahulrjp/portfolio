@@ -1,4 +1,4 @@
-import portfolio from "../assets/project-images/portfolio.png"
+import portfolio from "../assets/project-images/portfolio.jpg"
 import emart from "../assets/project-images/emart.png"
 import clock from "../assets/project-images/clock.png"
 
